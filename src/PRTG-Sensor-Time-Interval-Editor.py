@@ -20,7 +20,7 @@ __author__ = 'Anthony Farina'
 __copyright__ = 'Copyright 2021, PRTG Sensor Time Interval Editor'
 __credits__ = ['Anthony Farina']
 __license__ = 'MIT'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __maintainer__ = 'Anthony Farina'
 __email__ = 'farinaanthony96@gmail.com'
 __status__ = 'Released'
@@ -31,12 +31,13 @@ SCRIPT_PATH = os.path.dirname(os.path.realpath(__file__))
 
 # Global variables from the config file for easy referencing.
 CONFIG = configparser.ConfigParser()
-CONFIG.read(SCRIPT_PATH + '/../config.ini')
-SERVER_URL = CONFIG['PRTG_Info']['server_url']
-USERNAME = urllib.parse.quote_plus(CONFIG['PRTG_Info']['username'])
-PASSWORD = urllib.parse.quote_plus(CONFIG['PRTG_Info']['password'])
-PASSHASH = urllib.parse.quote_plus(CONFIG['PRTG_Info']['passhash'])
-TIMEZONE = CONFIG['Timezone_Info']['timezone']
+CONFIG_PATH = '/../configs/PRTG-Sensor-Time-Interval-Editor-config.ini'
+CONFIG.read(SCRIPT_PATH + CONFIG_PATH)
+SERVER_URL = CONFIG['PRTGInfo']['server_url']
+USERNAME = urllib.parse.quote_plus(CONFIG['PRTGInfo']['username'])
+PASSWORD = urllib.parse.quote_plus(CONFIG['PRTGInfo']['password'])
+PASSHASH = urllib.parse.quote_plus(CONFIG['PRTGInfo']['passhash'])
+TIMEZONE = CONFIG['TimezoneInfo']['timezone']
 
 
 # This function will go into the provided PRTG instance and edit the time

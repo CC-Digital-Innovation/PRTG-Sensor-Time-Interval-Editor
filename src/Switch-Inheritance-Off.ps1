@@ -1,12 +1,12 @@
 . ".\Get-IniFile-Function.ps1"
 
-$CONFIG = Get-IniFile .\..\config.ini
+$CONFIG = Get-IniFile .\..\configs\PRTG-Sensor-Time-Interval-Editor-config.ini
 
 Import-Module PrtgAPI
 
-$server = $CONFIG.PRTG_Info.server_url
-$username = $CONFIG.PRTG_Info.username
-$password = $CONFIG.PRTG_Info.password
+$server = $CONFIG.PRTGInfo.server_url
+$username = $CONFIG.PRTGInfo.username
+$password = $CONFIG.PRTGInfo.password
 
 Connect-PrtgServer $server (New-Credential $username $password)
 
